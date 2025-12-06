@@ -769,16 +769,11 @@ export default function HomePage() {
 
           <div className="relative mt-1 overflow-hidden bg-timmys-red rounded-timmys">
             <div className="flex animate-scroll whitespace-nowrap py-2 text-sm font-bold text-white">
-              {Array.from({ length: 1000 }).map((_, i) => {
-                const displayText = minerState?.uri && minerState.uri.trim() !== ""
-                  ? minerState.uri.replace(/Never Stop Glazing/gi, "Sorry for Glazing").replace(/Never Sorry for Glazing/gi, "Sorry for Glazing")
-                  : "Sorry for Glazing";
-                return (
-                  <span key={i} className="inline-block px-8">
-                    {displayText}
-                  </span>
-                );
-              })}
+              {Array.from({ length: 1000 }).map((_, i) => (
+                <span key={i} className="inline-block px-8">
+                  sorry for glazing
+                </span>
+              ))}
             </div>
           </div>
 
