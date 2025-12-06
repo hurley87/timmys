@@ -1,6 +1,21 @@
 import "@/app/globals.css";
 import type { Metadata } from "next";
+import { Inter, Dancing_Script } from "next/font/google";
 import { Providers } from "@/components/providers";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dancing-script",
+  display: "swap",
+});
 
 const appDomain = "https://glazecorp.vercel.app";
 const heroImageUrl = `${appDomain}/media/hero.png`;
@@ -10,23 +25,23 @@ const miniAppEmbed = {
   version: "1",
   imageUrl: heroImageUrl,
   button: {
-    title: "We Glaze The World",
+    title: "Tims Donut Shop",
     action: {
       type: "launch_miniapp" as const,
-      name: "GlazeCorp",
+      name: "Tims",
       url: appDomain,
       splashImageUrl,
-      splashBackgroundColor: "#FEE7EC",
+      splashBackgroundColor: "#F7F3ED",
     },
   },
 };
 
 export const metadata: Metadata = {
-  title: "We Glaze The World",
-  description: "Claim the glaze factory and earn donuts on Base.",
+  title: "Timmies Donut Shop",
+  description: "Double-double and a dozen donuts, eh! Grab a coffee, claim the shop, and earn donuts on Base. Always fresh, bud.",
   openGraph: {
-    title: "GlazeCorp",
-    description: "Race the hive to control the donut mine and keep the glaze flowing.",
+    title: "Tims Donut Shop",
+    description: "Double-double and a dozen donuts, eh! Join the crew and keep the donuts rollin'. Always fresh, bud.",
     url: appDomain,
     images: [
       {
@@ -46,7 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${inter.variable} ${dancingScript.variable}`}>
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Flame, Info } from "lucide-react";
+import { Flame, Info, Coffee } from "lucide-react";
 
 export function NavBar() {
   const pathname = usePathname();
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 bg-black border-t border-zinc-800"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-timmys-white border-t-2 border-timmys-red/30 shadow-lg"
       style={{
         paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 8px)",
         paddingTop: "8px",
@@ -20,11 +20,12 @@ export function NavBar() {
         <Link
           href="/blazery"
           className={cn(
-            "flex items-center justify-center p-3 transition-colors",
+            "flex items-center justify-center p-3 transition-colors rounded-lg",
             pathname === "/blazery"
-              ? "text-pink-400"
-              : "text-gray-400 hover:text-gray-300"
+              ? "text-timmys-red bg-timmys-red/10"
+              : "text-gray-700 hover:text-timmys-red hover:bg-timmys-red/5"
           )}
+          aria-label="Blazery"
         >
           <Flame className="w-6 h-6" />
         </Link>
@@ -32,28 +33,25 @@ export function NavBar() {
         <Link
           href="/"
           className={cn(
-            "flex items-center justify-center p-3 transition-colors",
+            "flex items-center justify-center p-3 transition-colors rounded-lg",
             pathname === "/"
-              ? "text-pink-400"
-              : "text-gray-400 hover:text-gray-300"
+              ? "text-timmys-red bg-timmys-red/10"
+              : "text-gray-700 hover:text-timmys-red hover:bg-timmys-red/5"
           )}
+          aria-label="Home"
         >
-          <div
-            className={cn(
-              "w-7 h-7 rounded-full border-[5px]",
-              pathname === "/" ? "border-pink-400" : "border-gray-400"
-            )}
-          />
+          <Coffee className="w-6 h-6" />
         </Link>
 
         <Link
           href="/about"
           className={cn(
-            "flex items-center justify-center p-3 transition-colors",
+            "flex items-center justify-center p-3 transition-colors rounded-lg",
             pathname === "/about"
-              ? "text-pink-400"
-              : "text-gray-400 hover:text-gray-300"
+              ? "text-timmys-red bg-timmys-red/10"
+              : "text-gray-700 hover:text-timmys-red hover:bg-timmys-red/5"
           )}
+          aria-label="About"
         >
           <Info className="w-6 h-6" />
         </Link>

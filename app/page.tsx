@@ -557,13 +557,13 @@ export default function HomePage() {
       : "—";
 
   const buttonLabel = useMemo(() => {
-    if (!minerState) return "Loading…";
-    if (glazeResult === "success") return "SUCCESS";
-    if (glazeResult === "failure") return "FAILURE";
+    if (!minerState) return "Loading, Bud…";
+    if (glazeResult === "success") return "BEAUTY!";
+    if (glazeResult === "failure") return "SORRY, BUD";
     if (isWriting || isConfirming) {
-      return "GLAZING…";
+      return "GLAZING, EH…";
     }
-    return "GLAZE";
+    return "GLAZE IT";
   }, [glazeResult, isConfirming, isWriting, minerState]);
 
   const isGlazeDisabled =
@@ -595,12 +595,12 @@ export default function HomePage() {
   const userAvatarUrl = context?.user?.pfpUrl ?? null;
 
   return (
-    <main className="flex h-screen w-screen justify-center overflow-hidden bg-black font-mono text-white">
+    <main className="flex h-screen w-screen justify-center overflow-hidden bg-timmys-cream font-sans">
       {/* Add to Farcaster Dialog - shows on first visit */}
       <AddToFarcasterDialog showOnFirstVisit={true} />
 
       <div
-        className="relative flex h-full w-full max-w-[520px] flex-1 flex-col overflow-hidden rounded-[28px] bg-black px-2 pb-4 shadow-inner"
+        className="relative flex h-full w-full max-w-[520px] flex-1 flex-col overflow-hidden rounded-[28px] bg-timmys-white px-2 pb-4 shadow-lg border-2 border-timmys-red/20"
         style={{
           paddingTop: "calc(env(safe-area-inset-top, 0px) + 8px)",
           paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 80px)",
@@ -608,23 +608,23 @@ export default function HomePage() {
       >
         <div className="flex flex-1 flex-col overflow-hidden">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold tracking-wide">GLAZERY</h1>
+            <h1 className="text-3xl font-script font-bold text-timmys-red">Tims</h1>
             {context?.user ? (
-              <div className="flex items-center gap-2 rounded-full bg-black px-3 py-1">
-                <Avatar className="h-8 w-8 border border-zinc-800">
+              <div className="flex items-center gap-2 rounded-full bg-timmys-white-off border-2 border-timmys-red/20 px-3 py-1 shadow-sm">
+                <Avatar className="h-8 w-8 border-2 border-timmys-red/30">
                   <AvatarImage
                     src={userAvatarUrl || undefined}
                     alt={userDisplayName}
                     className="object-cover"
                   />
-                  <AvatarFallback className="bg-zinc-800 text-white">
+                  <AvatarFallback className="bg-timmys-red text-white">
                     {initialsFrom(userDisplayName)}
                   </AvatarFallback>
                 </Avatar>
                 <div className="leading-tight text-left">
-                  <div className="text-sm font-bold">{userDisplayName}</div>
+                  <div className="text-sm font-bold text-gray-900">{userDisplayName}</div>
                   {userHandle ? (
-                    <div className="text-xs text-gray-400">{userHandle}</div>
+                    <div className="text-xs text-gray-600">{userHandle}</div>
                   ) : null}
                 </div>
               </div>
@@ -633,9 +633,9 @@ export default function HomePage() {
 
           <Card
             className={cn(
-              "mt-1 border-zinc-800 bg-gradient-to-br from-zinc-950 to-black transition-shadow rounded-xl",
+              "mt-1 border-timmys-red/30 bg-timmys-white-off transition-shadow rounded-timmys-lg",
               occupantDisplay.isYou &&
-                "border-pink-500 shadow-[inset_0_0_24px_rgba(236,72,153,0.55)] animate-glow",
+                "border-timmys-red shadow-[inset_0_0_24px_rgba(200,16,46,0.15)] animate-glow",
             )}
           >
             <div className="px-2 py-1.5 flex items-center justify-between gap-2">
@@ -646,8 +646,8 @@ export default function HomePage() {
                   className={cn(
                     "text-[9px] font-bold uppercase tracking-[0.1em]",
                     occupantDisplay.isYou
-                      ? "text-pink-400"
-                      : "text-gray-400",
+                      ? "text-timmys-red"
+                      : "text-gray-600",
                   )}
                 >
                   KING GLAZER
@@ -661,13 +661,13 @@ export default function HomePage() {
                   )}
                   onClick={neynarUser?.user?.fid ? handleViewKingGlazerProfile : undefined}
                 >
-                <Avatar className="h-7 w-7 flex-shrink-0 ring-2 ring-zinc-800">
+                <Avatar className="h-7 w-7 flex-shrink-0 ring-2 ring-timmys-red/30">
                   <AvatarImage
                     src={occupantDisplay.avatarUrl || undefined}
                     alt={occupantDisplay.primary}
                     className="object-cover"
                   />
-                  <AvatarFallback className="bg-zinc-800 text-white text-xs uppercase">
+                  <AvatarFallback className="bg-timmys-red text-white text-xs uppercase">
                     {minerState ? (
                       occupantFallbackInitials
                     ) : (
@@ -676,11 +676,11 @@ export default function HomePage() {
                   </AvatarFallback>
                 </Avatar>
                 <div className="leading-tight text-left min-w-0 flex-1">
-                  <div className="flex items-center gap-1 text-[11px] font-semibold text-white truncate">
+                  <div className="flex items-center gap-1 text-[11px] font-semibold text-gray-900 truncate">
                     <span className="truncate">{occupantDisplay.primary}</span>
                   </div>
                   {occupantDisplay.secondary ? (
-                    <div className="text-[9px] text-gray-400 truncate">
+                    <div className="text-[9px] text-gray-600 truncate">
                       {occupantDisplay.secondary}
                     </div>
                   ) : null}
@@ -692,33 +692,33 @@ export default function HomePage() {
               <div className="flex flex-col gap-0.5 flex-shrink-0">
                 {/* Time Row */}
                 <div className="flex items-center gap-1">
-                  <div className="text-[7px] font-bold uppercase tracking-[0.08em] text-gray-400 w-9 text-right">
+                  <div className="text-[7px] font-bold uppercase tracking-[0.08em] text-timmys-brown/60 w-9 text-right">
                     TIME
                   </div>
-                  <div className="text-[10px] font-semibold text-white">
+                  <div className="text-[10px] font-semibold text-timmys-brown">
                     {glazeTimeDisplay}
                   </div>
                 </div>
 
                 {/* Glazed Row */}
                 <div className="flex items-center gap-1">
-                  <div className="text-[7px] font-bold uppercase tracking-[0.08em] text-gray-400 w-9 text-right">
+                  <div className="text-[7px] font-bold uppercase tracking-[0.08em] text-timmys-brown/60 w-9 text-right">
                     GLAZED
                   </div>
-                  <div className="text-[10px] font-semibold text-white">
+                  <div className="text-[10px] font-semibold text-timmys-brown">
                     +{glazedDisplay}
                   </div>
-                  <div className="text-[8px] text-gray-400">
+                  <div className="text-[8px] text-timmys-brown/60">
                     +${glazedUsdValue}
                   </div>
                 </div>
 
                 {/* PNL Row */}
                 <div className="flex items-center gap-1">
-                  <div className="text-[7px] font-bold uppercase tracking-[0.08em] text-gray-400 w-9 text-right">
+                  <div className="text-[7px] font-bold uppercase tracking-[0.08em] text-timmys-brown/60 w-9 text-right">
                     PNL
                   </div>
-                  <div className="text-[10px] font-semibold text-white">
+                  <div className="text-[10px] font-semibold text-timmys-brown">
                     {minerState
                       ? (() => {
                           const pnl = (minerState.price * 80n) / 100n - minerState.initPrice / 2n;
@@ -728,14 +728,14 @@ export default function HomePage() {
                         })()
                       : "Ξ—"}
                   </div>
-                  <div className="text-[8px] text-gray-400">
+                  <div className="text-[8px] text-timmys-brown/60">
                     {pnlUsdValue}
                   </div>
                 </div>
 
                 {/* Total Row */}
                 <div className="flex items-center gap-1">
-                  <div className="text-[7px] font-bold uppercase tracking-[0.08em] text-gray-400 w-9 text-right">
+                  <div className="text-[7px] font-bold uppercase tracking-[0.08em] text-gray-600 w-9 text-right">
                     TOTAL
                   </div>
                   <div className={cn(
@@ -747,8 +747,8 @@ export default function HomePage() {
                       const glazedUsd = Number(glazedUsdValue);
                       return (glazedUsd + pnlUsd) >= 0;
                     })()
-                      ? "text-green-400"
-                      : "text-red-400"
+                      ? "text-green-600"
+                      : "text-red-600"
                   )}>
                     {minerState
                       ? (() => {
@@ -767,15 +767,18 @@ export default function HomePage() {
             </div>
           </Card>
 
-          <div className="relative mt-1 overflow-hidden bg-black">
-            <div className="flex animate-scroll whitespace-nowrap py-1 text-sm font-bold text-pink-500">
-              {Array.from({ length: 1000 }).map((_, i) => (
-                <span key={i} className="inline-block px-8">
-                  {minerState?.uri && minerState.uri.trim() !== ""
-                    ? minerState.uri
-                    : "We Glaze The World"}
-                </span>
-              ))}
+          <div className="relative mt-1 overflow-hidden bg-timmys-red rounded-timmys">
+            <div className="flex animate-scroll whitespace-nowrap py-2 text-sm font-bold text-white">
+              {Array.from({ length: 1000 }).map((_, i) => {
+                const displayText = minerState?.uri && minerState.uri.trim() !== ""
+                  ? minerState.uri.replace(/Never Stop Glazing/gi, "Sorry for Glazing").replace(/Never Sorry for Glazing/gi, "Sorry for Glazing")
+                  : "Sorry for Glazing";
+                return (
+                  <span key={i} className="inline-block px-8">
+                    {displayText}
+                  </span>
+                );
+              })}
             </div>
           </div>
 
@@ -792,44 +795,44 @@ export default function HomePage() {
             />
             <button
               onClick={() => setIsMuted(!isMuted)}
-              className="absolute bottom-3 right-3 p-2 rounded-full bg-black/60 hover:bg-black/80 transition-colors"
+              className="absolute bottom-3 right-3 p-2 rounded-full bg-white/90 hover:bg-white shadow-md transition-colors border-2 border-timmys-red/20"
               aria-label={isMuted ? "Unmute" : "Mute"}
             >
               {isMuted ? (
-                <VolumeOff className="w-5 h-5 text-white" />
+                <VolumeOff className="w-5 h-5 text-timmys-red" />
               ) : (
-                <Volume2 className="w-5 h-5 text-white" />
+                <Volume2 className="w-5 h-5 text-timmys-red" />
               )}
             </button>
           </div>
 
           <div className="mt-1 flex flex-col gap-1.5 pb-1">
             <div className="grid grid-cols-2 gap-1.5">
-              <Card className="border-zinc-800 bg-black">
+              <Card className="border-timmys-red/20 bg-timmys-white-off">
                 <CardContent className="grid gap-0.5 p-2">
-                  <div className="text-[9px] font-bold uppercase tracking-[0.08em] text-gray-400">
+                  <div className="text-[9px] font-bold uppercase tracking-[0.08em] text-gray-600">
                     GLAZE RATE
                   </div>
                   <div className="flex items-baseline">
                     <span className="text-base leading-none">🍩</span>
-                    <span className="text-xl font-semibold text-white">{glazeRateDisplay}</span>
-                    <span className="text-[10px] text-gray-400">/s</span>
+                    <span className="text-xl font-semibold text-gray-900">{glazeRateDisplay}</span>
+                    <span className="text-[10px] text-gray-600">/s</span>
                   </div>
-                  <div className="text-[10px] text-gray-400">
+                  <div className="text-[10px] text-gray-600">
                     ${glazeRateUsdValue}/s
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-zinc-800 bg-black">
+              <Card className="border-timmys-red/20 bg-timmys-white-off">
                 <CardContent className="grid gap-0.5 p-2">
-                  <div className="text-[9px] font-bold uppercase tracking-[0.08em] text-gray-400">
+                  <div className="text-[9px] font-bold uppercase tracking-[0.08em] text-gray-600">
                     GLAZE PRICE
                   </div>
                   <div className="flex items-baseline">
-                    <span className="text-xl font-semibold text-pink-400">{glazePriceDisplay}</span>
+                    <span className="text-xl font-semibold text-timmys-red">{glazePriceDisplay}</span>
                   </div>
-                  <div className="text-[10px] text-gray-400">
+                  <div className="text-[10px] text-gray-600">
                     $
                     {minerState
                       ? (
@@ -845,14 +848,14 @@ export default function HomePage() {
               type="text"
               value={customMessage}
               onChange={(e) => setCustomMessage(e.target.value)}
-              placeholder="Add a message (optional)"
+              placeholder="Leave a message, eh (optional)"
               maxLength={100}
-              className="w-full rounded-lg border border-zinc-800 bg-black px-2.5 py-1.5 text-xs font-mono text-white placeholder-gray-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-40"
+              className="w-full rounded-timmys border-2 border-timmys-red/20 bg-timmys-white px-2.5 py-1.5 text-xs font-sans text-gray-900 placeholder-gray-500 focus:outline-none focus:border-timmys-red disabled:cursor-not-allowed disabled:opacity-40"
               disabled={isGlazeDisabled}
             />
 
             <Button
-              className="w-full rounded-2xl bg-pink-500 py-2 text-sm font-bold text-black shadow-lg transition-colors hover:bg-pink-400 disabled:cursor-not-allowed disabled:bg-pink-500/40"
+              className="w-full rounded-timmys-lg bg-timmys-red py-2 text-sm font-bold text-white shadow-lg transition-all hover:bg-timmys-red-dark active:scale-98 disabled:cursor-not-allowed disabled:bg-timmys-red/40"
               onClick={handleGlaze}
               disabled={isGlazeDisabled}
             >
@@ -861,22 +864,22 @@ export default function HomePage() {
           </div>
 
           <div className="mt-auto px-2 pb-1">
-            <div className="mb-0.5 text-[11px] uppercase tracking-wide text-gray-400">
-              Your Balances
+            <div className="mb-0.5 text-[11px] uppercase tracking-wide text-gray-600 font-semibold">
+              Your Loonies & Donuts
             </div>
 
             <div className="flex justify-between">
               {/* Left Column - Donut Balance & Mined */}
               <div className="flex flex-col gap-0.5 items-start">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold">
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-gray-900">
                   <span>🍩</span>
                   <span>{donutBalanceDisplay}</span>
                 </div>
                 <div className="flex flex-col items-start text-[11px]">
-                  <span className="text-gray-400 mb-0">Mined</span>
+                  <span className="text-gray-600 mb-0">Mined</span>
                   <div className="flex items-center gap-1">
                     <span>🍩</span>
-                    <span className="font-semibold">
+                    <span className="font-semibold text-gray-900">
                       {address && accountData?.mined
                         ? Number(accountData.mined).toLocaleString(undefined, {
                             maximumFractionDigits: 2,
@@ -889,15 +892,15 @@ export default function HomePage() {
 
               {/* Middle Column - ETH Balance & Spent */}
               <div className="flex flex-col gap-0.5 items-start">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold">
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-gray-900">
                   <span>Ξ</span>
                   <span>{ethBalanceDisplay}</span>
                 </div>
                 <div className="flex flex-col items-start text-[11px]">
-                  <span className="text-gray-400 mb-0">Spent</span>
+                  <span className="text-gray-600 mb-0">Spent</span>
                   <div className="flex items-center gap-1">
                     <span>Ξ</span>
-                    <span className="font-semibold">
+                    <span className="font-semibold text-gray-900">
                       {address && accountData?.spent
                         ? Number(accountData.spent).toLocaleString(undefined, {
                             maximumFractionDigits: 4,
@@ -910,7 +913,7 @@ export default function HomePage() {
 
               {/* Right Column - WETH Balance & Earned */}
               <div className="flex flex-col gap-0.5 items-start">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold">
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-gray-900">
                   <span>wΞ</span>
                   <span>
                     {minerState && minerState.wethBalance !== undefined
@@ -919,10 +922,10 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="flex flex-col items-start text-[11px]">
-                  <span className="text-gray-400 mb-0">Earned</span>
+                  <span className="text-gray-600 mb-0">Earned</span>
                   <div className="flex items-center gap-1">
                     <span>wΞ</span>
-                    <span className="font-semibold">
+                    <span className="font-semibold text-gray-900">
                       {address && accountData?.earned
                         ? Number(accountData.earned).toLocaleString(undefined, {
                             maximumFractionDigits: 4,

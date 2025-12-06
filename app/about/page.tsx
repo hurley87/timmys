@@ -67,40 +67,40 @@ export default function AboutPage() {
   const userAvatarUrl = context?.user?.pfpUrl ?? null;
 
   return (
-    <main className="flex h-screen w-screen justify-center overflow-hidden bg-black font-mono text-white">
+    <main className="flex h-screen w-screen justify-center overflow-hidden bg-timmys-white font-sans">
       <div
-        className="relative flex h-full w-full max-w-[520px] flex-1 flex-col overflow-hidden rounded-[28px] bg-black px-2 pb-4 shadow-inner"
+        className="relative flex h-full w-full max-w-[520px] flex-1 flex-col overflow-hidden rounded-[28px] bg-timmys-white px-2 pb-4 shadow-lg border-2 border-timmys-red/20"
         style={{
           paddingTop: "calc(env(safe-area-inset-top, 0px) + 8px)",
           paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 80px)",
         }}
       >
         <div className="flex flex-1 flex-col overflow-hidden">
-          <div className="sticky top-0 z-10 bg-black pb-2 flex items-center justify-between">
-            <h1 className="text-2xl font-bold tracking-wide">ABOUT</h1>
+          <div className="sticky top-0 z-10 bg-white pb-2 flex items-center justify-between border-b-2 border-timmys-red/10">
+            <h1 className="text-3xl font-script font-bold text-timmys-red">About Timmies</h1>
             {context?.user ? (
-              <div className="flex items-center gap-2 rounded-full bg-black px-3 py-1">
-                <Avatar className="h-8 w-8 border border-zinc-800">
+              <div className="flex items-center gap-2 rounded-full bg-timmys-white-off border-2 border-timmys-red/20 px-3 py-1 shadow-sm">
+                <Avatar className="h-8 w-8 border-2 border-timmys-red/30">
                   <AvatarImage
                     src={userAvatarUrl || undefined}
                     alt={userDisplayName}
                     className="object-cover"
                   />
-                  <AvatarFallback className="bg-zinc-800 text-white">
+                  <AvatarFallback className="bg-timmys-red text-white">
                     {initialsFrom(userDisplayName)}
                   </AvatarFallback>
                 </Avatar>
                 <div className="leading-tight text-left">
-                  <div className="text-sm font-bold">{userDisplayName}</div>
+                  <div className="text-sm font-bold text-gray-900">{userDisplayName}</div>
                   {userHandle ? (
-                    <div className="text-xs text-gray-400">{userHandle}</div>
+                    <div className="text-xs text-gray-600">{userHandle}</div>
                   ) : null}
                 </div>
               </div>
             ) : null}
           </div>
 
-          <div className="space-y-6 px-2 overflow-y-auto scrollbar-hide flex-1">
+          <div className="space-y-6 px-2 overflow-y-auto scrollbar-hide flex-1 pt-4">
             <div className="grid grid-cols-2 gap-2">
               <AddToFarcasterButton
                 variant="default"
@@ -110,82 +110,82 @@ export default function AboutPage() {
               />
             </div>
 
-            <section>
-              <h2 className="text-lg font-bold text-pink-400 mb-2">
-                What Is $DONUT
+            <section className="bg-timmys-white-off rounded-timmys-lg p-4 border-2 border-timmys-red/20">
+              <h2 className="text-lg font-bold text-timmys-red mb-2">
+                What Is $DONUT, Eh?
               </h2>
-              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
-                <li>$DONUT is a store-of-value token on Base</li>
-                <li>Mined through a continuous Dutch auction instead of proof-of-work or staking</li>
-                <li>Auction revenue increases $DONUT's liquidity and scarcity</li>
+              <ul className="space-y-2 text-sm text-gray-900 list-disc list-inside">
+                <li>$DONUT is a beauty of a store-of-value token on Base</li>
+                <li>Mined through a continuous Dutch auction instead of proof-of-work or staking, bud</li>
+                <li>Auction revenue keeps $DONUT's liquidity strong like a double-double</li>
               </ul>
             </section>
 
-            <section>
-              <h2 className="text-lg font-bold text-pink-400 mb-2">
-                How Mining Works
+            <section className="bg-timmys-white-off rounded-timmys-lg p-4 border-2 border-timmys-red/20">
+              <h2 className="text-lg font-bold text-timmys-red mb-2">
+                How Mining Works, Bud
               </h2>
-              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
-                <li>Only one active miner at a time, called the King Glazer</li>
+              <ul className="space-y-2 text-sm text-gray-900 list-disc list-inside">
+                <li>Only one hoser at a time can be King Glazer, eh</li>
                 <li>The right to mine is bought with ETH through a continuous Dutch auction:</li>
-                <li className="pl-6 list-none">- Price doubles after each purchase</li>
+                <li className="pl-6 list-none">- Price doubles after each purchase, like ordering a second double-double</li>
                 <li className="pl-6 list-none">- Then decays to 0 over one hour</li>
-                <li className="pl-6 list-none">- Anyone can purchase control of emissions at the current price</li>
+                <li className="pl-6 list-none">- Anyone can grab control at the current price</li>
               </ul>
             </section>
 
-            <section>
-              <h2 className="text-lg font-bold text-pink-400 mb-2">
-                Revenue Split
+            <section className="bg-timmys-white-off rounded-timmys-lg p-4 border-2 border-timmys-red/20">
+              <h2 className="text-lg font-bold text-timmys-red mb-2">
+                How We Split the Loonies
               </h2>
-              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
-                <li>80% → previous King Glazer</li>
-                <li>15% → treasury (Blazery)</li>
-                <li>5% → provider (frontend host)</li>
+              <ul className="space-y-2 text-sm text-gray-900 list-disc list-inside">
+                <li>80% → previous King Glazer (good on ya, bud!)</li>
+                <li>15% → treasury (the Blazery)</li>
+                <li>5% → provider (the shop owner, eh)</li>
               </ul>
             </section>
 
-            <section>
-              <h2 className="text-lg font-bold text-pink-400 mb-2">
-                Emission Schedule
+            <section className="bg-timmys-white-off rounded-timmys-lg p-4 border-2 border-timmys-red/20">
+              <h2 className="text-lg font-bold text-timmys-red mb-2">
+                Fresh Donuts Schedule
               </h2>
-              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
-                <li>Starts at 4 DONUT / sec</li>
-                <li>Halving every 30 days</li>
-                <li>Tail emission: 0.01 DONUT / sec (forever)</li>
+              <ul className="space-y-2 text-sm text-gray-900 list-disc list-inside">
+                <li>Starts at 4 DONUT / sec (always fresh!)</li>
+                <li>Halving every 30 days, eh</li>
+                <li>Tail emission: 0.01 DONUT / sec (forever, bud)</li>
               </ul>
             </section>
 
-            <section>
-              <h2 className="text-lg font-bold text-pink-400 mb-2">
-                Proof of Just-In-Time Stake
+            <section className="bg-timmys-white-off rounded-timmys-lg p-4 border-2 border-timmys-red/20">
+              <h2 className="text-lg font-bold text-timmys-red mb-2">
+                Proof of Just-In-Time Stake, Eh
               </h2>
-              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
-                <li>ETH is "staked" only while controlling emissions</li>
-                <li>Profit if the next purchase pays more</li>
-                <li>Lose if it pays less</li>
-                <li>Earn $DONUT the entire time you hold control</li>
+              <ul className="space-y-2 text-sm text-gray-900 list-disc list-inside">
+                <li>ETH is "staked" only while you're running the shop</li>
+                <li>Profit if the next hoser pays more</li>
+                <li>Take a hit if they pay less, sorry bud</li>
+                <li>Earn $DONUT the whole time you're King Glazer!</li>
               </ul>
             </section>
 
-            <section>
-              <h2 className="text-lg font-bold text-pink-400 mb-2">
-                Treasury
+            <section className="bg-timmys-white-off rounded-timmys-lg p-4 border-2 border-timmys-red/20">
+              <h2 className="text-lg font-bold text-timmys-red mb-2">
+                The Treasury (Our Loonie Jar)
               </h2>
-              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
-                <li>Treasury ETH is used to buy and burn DONUT-WETH LP in the Blazery</li>
-                <li>Once sufficient liquidity is established, the Glazery can be upgraded to buy and burn DONUT directly, or governance can decide to acquire other assets or reinvest the treasury</li>
+              <ul className="space-y-2 text-sm text-gray-900 list-disc list-inside">
+                <li>Treasury ETH gets used to buy and burn DONUT-WETH LP in the Blazery, eh</li>
+                <li>Once we've got enough loonies saved up, we can upgrade to buy and burn DONUT directly, or the crew can vote on what to do with it</li>
               </ul>
             </section>
 
-            <section className="pb-4">
-              <h2 className="text-lg font-bold text-pink-400 mb-2">
-                Builder Codes
+            <section className="bg-timmys-white-off rounded-timmys-lg p-4 border-2 border-timmys-red/20 pb-4">
+              <h2 className="text-lg font-bold text-timmys-red mb-2">
+                Open Your Own Shop, Bud!
               </h2>
-              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
-                <li>Anyone can host their own Donut Shop by deploying a frontend</li>
-                <li>Add your builder code to earn 5% of all purchases made through your shop</li>
-                <li>The protocol will launch with two official Donut Shops:</li>
+              <ul className="space-y-2 text-sm text-gray-900 list-disc list-inside">
+                <li>Anyone can open their own Timmies by deploying a frontend, eh</li>
+                <li>Add your builder code to earn 5% of all purchases - beauty!</li>
+                <li>We're launching with two official shops:</li>
                 <li className="pl-6 list-none">- GlazeCorp by @heesh</li>
                 <li className="pl-6 list-none">- Pinky Glazer by @bigbroc</li>
               </ul>

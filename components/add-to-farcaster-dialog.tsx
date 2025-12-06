@@ -113,18 +113,18 @@ export function AddToFarcasterDialog({
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm animate-in fade-in-0"
+        className="fixed inset-0 z-50 bg-gray-900/60 backdrop-blur-sm animate-in fade-in-0"
         onClick={handleClose}
       />
 
       {/* Dialog */}
       <div className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-2">
-        <div className="relative mx-4 rounded-2xl border border-zinc-800 bg-black p-6 shadow-2xl">
+        <div className="relative mx-4 rounded-timmys-xl border-2 border-timmys-red/30 bg-white p-6 shadow-2xl">
           {/* Close button */}
           <button
             onClick={handleClose}
             disabled={status === "adding"}
-            className="absolute right-4 top-4 rounded-lg p-1 text-gray-400 transition-colors hover:bg-zinc-800 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute right-4 top-4 rounded-timmys p-1 text-gray-600 transition-colors hover:bg-timmys-red/10 hover:text-timmys-red disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Close"
           >
             <X className="h-5 w-5" />
@@ -132,10 +132,10 @@ export function AddToFarcasterDialog({
 
           {/* Icon */}
           <div className="mb-4 flex justify-center">
-            <div className="rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 p-4">
+            <div className="rounded-timmys-xl bg-gradient-to-br from-timmys-red to-timmys-red-dark p-4 shadow-md">
               <img
                 src="/media/icon.png"
-                alt="GlazeCorp"
+                alt="Timmies Donut Shop"
                 className="h-16 w-16"
               />
             </div>
@@ -143,19 +143,18 @@ export function AddToFarcasterDialog({
 
           {/* Content */}
           <div className="mb-6 text-center">
-            <h2 className="mb-2 text-2xl font-bold text-white">
-              Add GlazeCorp
+            <h2 className="mb-2 text-3xl font-script font-bold text-timmys-red">
+              Add Timmies
             </h2>
-            <p className="text-sm text-gray-400">
-              Install this Mini App to your Farcaster profile for quick access.
-              Keep the glaze flowing wherever you go!
+            <p className="text-sm text-gray-600">
+              Add this to your Farcaster, eh! Grab a double-double and fresh donuts wherever you go, bud.
             </p>
           </div>
 
           {/* Error message */}
           {status === "error" && errorMessage && (
-            <div className="mb-4 rounded-lg border border-red-800 bg-red-950/50 p-3 text-center">
-              <p className="text-sm text-red-400">{errorMessage}</p>
+            <div className="mb-4 rounded-timmys border-2 border-red-300 bg-red-50 p-3 text-center">
+              <p className="text-sm text-red-700">{errorMessage}</p>
             </div>
           )}
 
@@ -165,12 +164,12 @@ export function AddToFarcasterDialog({
               onClick={handleAddToFarcaster}
               disabled={status === "adding" || status === "success"}
               className={cn(
-                "w-full gap-2 rounded-xl py-6 text-base font-bold transition-all",
+                "w-full gap-2 rounded-timmys-lg py-6 text-base font-bold transition-all",
                 status === "idle" &&
-                  "bg-pink-500 hover:bg-pink-400 text-black",
+                  "bg-timmys-red hover:bg-timmys-red-dark text-white",
                 status === "success" &&
-                  "bg-green-600 hover:bg-green-600 text-white",
-                status === "error" && "bg-red-600 hover:bg-red-600 text-white"
+                  "bg-green-600 hover:bg-green-700 text-white",
+                status === "error" && "bg-red-600 hover:bg-red-700 text-white"
               )}
             >
               {status === "adding" && (
@@ -182,7 +181,7 @@ export function AddToFarcasterDialog({
               {status === "success" && (
                 <>
                   <Check className="h-5 w-5" />
-                  <span>Added Successfully!</span>
+                  <span>Beauty! Added Successfully!</span>
                 </>
               )}
               {status === "error" && (
@@ -203,25 +202,25 @@ export function AddToFarcasterDialog({
               onClick={handleClose}
               disabled={status === "adding"}
               variant="ghost"
-              className="w-full text-gray-400 hover:text-white hover:bg-zinc-800"
+              className="w-full text-gray-600 hover:text-timmys-red hover:bg-timmys-red/10"
             >
-              Maybe Later
+              Maybe Later, Bud
             </Button>
           </div>
 
           {/* Benefits list */}
-          <div className="mt-6 space-y-2 border-t border-zinc-800 pt-4">
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <div className="h-1.5 w-1.5 rounded-full bg-pink-500" />
-              <span>Quick access from your Farcaster apps</span>
+          <div className="mt-6 space-y-2 border-t-2 border-timmys-red/20 pt-4">
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="h-1.5 w-1.5 rounded-full bg-timmys-red" />
+              <span>Quick access from your Farcaster, eh</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <div className="h-1.5 w-1.5 rounded-full bg-pink-500" />
-              <span>Receive notifications about glaze activity</span>
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="h-1.5 w-1.5 rounded-full bg-timmys-red" />
+              <span>Get notified when fresh donuts drop, bud</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <div className="h-1.5 w-1.5 rounded-full bg-pink-500" />
-              <span>Stay connected to the glazery</span>
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="h-1.5 w-1.5 rounded-full bg-timmys-red" />
+              <span>Stay connected to your Timmies crew</span>
             </div>
           </div>
         </div>
