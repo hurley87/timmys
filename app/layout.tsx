@@ -17,7 +17,7 @@ const dancingScript = Dancing_Script({
   display: "swap",
 });
 
-const appDomain = "https://glazecorp.vercel.app";
+const appDomain = "https://timmies.vercel.app";
 const heroImageUrl = `${appDomain}/media/hero.png`;
 const splashImageUrl = `${appDomain}/media/splash.png`;
 
@@ -31,7 +31,7 @@ const miniAppEmbed = {
       name: "Tims",
       url: appDomain,
       splashImageUrl,
-      splashBackgroundColor: "#F7F3ED",
+      splashBackgroundColor: "#FFFFFF",
     },
   },
 };
